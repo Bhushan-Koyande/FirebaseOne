@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CREATE\nACCOUNT"
+        android:textSize="38sp"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        style="@style/DefaultAppFont"
+        />
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_marginStart="64dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:hint="First Name"
+            style="@style/DefaultAppFont"
+            android:textSize="14sp"
+            android:inputType="text"
+            android:id="@+id/firstName"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_marginStart="205dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            style="@style/DefaultAppFont"
+            android:hint="Second Name"
+            android:inputType="text"
+            android:id="@+id/secondName"
+            android:textSize="14sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="40dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            style="@style/DefaultAppFont"
+            android:hint="e-mail"
+            android:inputType="text"
+            android:id="@+id/inputEmailID"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="350dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="40dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            style="@style/DefaultAppFont"
+            android:textSize="14sp"
+            android:id="@+id/inputPasswd"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            />
+    </com.google.android.material.textfield.TextInputLayout><com.google.android.material.textfield.TextInputLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="450dp"
+    android:layout_marginStart="40dp">
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        style="@style/DefaultAppFont"
+        android:id="@+id/confirmPasswd"
+        android:hint="Confirm password"
+        android:inputType="textPassword"
+        />
+</com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="160dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="550dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="15sp"
+        android:id="@+id/registerButton"
+        android:text="register"/>
+
+
+</RelativeLayout>
