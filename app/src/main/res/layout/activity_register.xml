@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
+
     <com.google.android.material.textview.MaterialTextView
+        style="@style/DefaultAppFont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CREATE\nACCOUNT"
-        android:textSize="38sp"
-        android:layout_marginTop="30dp"
-        android:textColor="@color/colorPrimaryDark"
         android:layout_centerHorizontal="true"
-        android:textStyle="bold"
-        style="@style/DefaultAppFont"
-        />
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/allura"
+        android:text="CREATE\nACCOUNT"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="38sp"
+        android:textStyle="bold" />
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
-        android:layout_marginStart="64dp">
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="40dp">
         <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="130dp"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:hint="First Name"
             style="@style/DefaultAppFont"
@@ -29,10 +31,11 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:layout_marginStart="205dp">
+        android:layout_marginTop="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="40dp">
         <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="140dp"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             style="@style/DefaultAppFont"
             android:hint="Second Name"
@@ -43,7 +46,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="350dp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="40dp">
         <com.google.android.material.textfield.TextInputEditText
@@ -58,7 +61,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="450dp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="40dp">
         <com.google.android.material.textfield.TextInputEditText
@@ -74,7 +77,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_centerHorizontal="true"
-    android:layout_marginTop="450dp"
+    android:layout_marginTop="550dp"
     android:layout_marginStart="40dp">
     <com.google.android.material.textfield.TextInputEditText
         android:layout_width="280dp"
@@ -89,11 +92,13 @@
     <com.google.android.material.button.MaterialButton
         android:layout_width="160dp"
         android:layout_height="60dp"
-        android:layout_marginTop="550dp"
+        android:layout_marginTop="650dp"
+        style="@style/ButtonFontStyle"
         android:layout_centerHorizontal="true"
+        android:textStyle="bold"
         android:textSize="15sp"
         android:id="@+id/registerButton"
-        android:text="register"/>
+        android:text="REGISTER"/>
 
 
 </RelativeLayout>

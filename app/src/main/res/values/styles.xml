@@ -12,7 +12,10 @@
         <item name="boxBackgroundColor">@android:color/white</item>
     </style>
     <style name="DefaultAppFont" parent="Theme.MaterialComponents">
-        <item name="android:fontFamily">cursive</item>
+        <item name="android:fontFamily">@font/allura</item>
+    </style>
+    <style name="ButtonFontStyle" parent="Theme.MaterialComponents">
+        <item name="android:fontFamily">@font/playfair_display</item>
     </style>
 
 </resources>
