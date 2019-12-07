@@ -8,10 +8,9 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:fontFamily="@font/allura"
         android:text="CREATE\nACCOUNT"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="38sp"
+        android:textSize="30sp"
         android:textStyle="bold" />
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="wrap_content"

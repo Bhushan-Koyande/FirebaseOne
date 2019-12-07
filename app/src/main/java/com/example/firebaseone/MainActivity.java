@@ -27,59 +27,37 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment());
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottomNavigation);
-        bottomNavigationView.setSelectedItemId(R.id.nav_home);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                Fragment selectedFragment=null;
-                FragmentManager fragmentManager=getSupportFragmentManager();
-                switch (menuItem.getItemId()){
-                    case R.id.nav_home:
-                        selectedFragment=new HomeFragment();
-                        break;
-                    case R.id.nav_search:
-                        selectedFragment=new SearchFragment();
-                        break;
-                    case R.id.nav_account:
-                        selectedFragment=new AccountFragment();
-                        break;
-                }
-                fragmentManager.popBackStack("ConnectionError", FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                assert selectedFragment!=null;
-                fragmentManager.beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
-                return true;
-            }
-        });
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment());
+        bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
+
 
     }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener
+            =new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+            Fragment selectedFragment=null;
+            switch (menuItem.getItemId()){
+                case R.id.nav_home:
+                    selectedFragment=new HomeFragment();
+                    break;
+                case R.id.nav_search:
+                    selectedFragment=new SearchFragment();
+                    break;
+                case R.id.nav_account:
+                    selectedFragment=new AccountFragment();
+            }
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
+            return true;
+        }
+    };
     @Override
     public void onBackPressed(){
         Intent intent=new Intent(MainActivity.this,SignInActivity.class);
         startActivity(intent);
     }
 
-    //@Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem){
-        Fragment selectedFragment=null;
-        FragmentManager fragmentManager=getSupportFragmentManager();
-        switch (menuItem.getItemId()){
-            case R.id.nav_home:
-                selectedFragment=new HomeFragment();
-                break;
-            case R.id.nav_search:
-                selectedFragment=new SearchFragment();
-                break;
-            case R.id.nav_account:
-                selectedFragment=new AccountFragment();
-                break;
-        }
-        fragmentManager.popBackStack("ConnectionError", FragmentManager.POP_BACK_STACK_INCLUSIVE);
-        assert selectedFragment!=null;
-        fragmentManager.beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
-        return true;
-    }
 
 }
