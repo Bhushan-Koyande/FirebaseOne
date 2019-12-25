@@ -58,8 +58,10 @@ public class SignInActivity extends AppCompatActivity {
                     mAuth.signInWithEmailAndPassword(email,passwd).addOnCompleteListener(SignInActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            Intent i=new Intent(SignInActivity.this,MainActivity.class);
-                            startActivity(i);
+                            if(task.isSuccessful()){
+                                Intent i=new Intent(SignInActivity.this,MainActivity.class);
+                                startActivity(i);
+                            }
                         }
                     });
 
@@ -80,6 +82,13 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(SignInActivity.this,RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+        forgotTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(SignInActivity.this,ResetPasswordActivity.class);
                 startActivity(intent);
             }
         });

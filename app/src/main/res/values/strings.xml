@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">FirebaseOne</string>
     <string name="password">password</string>
+    <string name="location_permission_denied">User denied permission for device location.</string>
 </resources>

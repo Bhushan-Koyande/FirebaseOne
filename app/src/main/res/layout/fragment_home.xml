@@ -2,12 +2,30 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
     <com.google.android.material.textview.MaterialTextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Home Fragment"
-        android:textSize="25sp"
-        style="@style/ButtonFontStyle"
-        android:textColor="@color/colorPrimaryDark"/>
+        android:textSize="20sp"
+        android:padding="5dp"
+        android:text=" You Are Here"
+        style="@style/DefaultAppFont"
+        android:drawableStart="@drawable/map_pin"
+        android:elevation="4dp"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/panicButton"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="74dp"
+        android:backgroundTint="@color/colorAccent"
+        android:elevation="5dp"
+        android:fontFamily="@font/playfair_display"
+        android:text="PANIC"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
 
 </RelativeLayout>

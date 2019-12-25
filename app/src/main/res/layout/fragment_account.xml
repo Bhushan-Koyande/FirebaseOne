@@ -1,13 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Account Fragment"
-        android:textSize="25sp"
-        style="@style/ButtonFontStyle"
+        android:text="My Profile"
+        android:textSize="40sp"
+        android:padding="20dp"
+        android:fontFamily="@font/playfair_display"
+        android:textStyle="bold"
         android:textColor="@color/colorPrimaryDark"/>
-
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="150dp"
+        app:cardUseCompatPadding="true"
+        android:id="@+id/cardView1"
+        app:cardElevation="2dp">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/editprofile"
+            android:layout_margin="40dp"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Profile"
+            android:layout_gravity="bottom"
+            android:padding="5dp"
+            android:fontFamily="@font/playfair_display"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginHorizontal="50dp"/>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="150dp"
+        android:layout_alignEnd="@id/cardView1"
+        android:layout_alignBaseline="@id/cardView1"
+        android:layout_alignParentRight="true"
+        android:id="@+id/cardView2"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="2dp">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/addfriend"
+            android:layout_margin="40dp"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Contacts"
+            android:layout_gravity="bottom"
+            android:padding="5dp"
+            android:fontFamily="@font/playfair_display"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginHorizontal="45dp"/>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="360dp"
+        app:cardUseCompatPadding="true"
+        android:id="@+id/cardView3"
+        app:cardElevation="2dp">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/about"
+            android:layout_margin="40dp"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About Us"
+            android:layout_gravity="bottom"
+            android:padding="5dp"
+            android:fontFamily="@font/playfair_display"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginHorizontal="60dp"/>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="360dp"
+        android:layout_alignEnd="@id/cardView3"
+        android:layout_alignBaseline="@id/cardView3"
+        android:layout_alignParentRight="true"
+        android:id="@+id/cardView4"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="2dp">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="40dp"
+            android:src="@drawable/signout" />
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log Out"
+            android:layout_gravity="bottom"
+            android:padding="5dp"
+            android:fontFamily="@font/playfair_display"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginHorizontal="60dp"/>
+    </com.google.android.material.card.MaterialCardView>
 </RelativeLayout>

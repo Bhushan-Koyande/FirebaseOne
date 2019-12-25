@@ -14,6 +14,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -56,7 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 ToastMessage("createUserWithEmail:OnComplete"+task.isSuccessful());
                                 if(!task.isSuccessful()){
-                                    ToastMessage(task.getException().toString());
+                                    ToastMessage(task.getException().getMessage());
                                 }
                             }
                         });
@@ -64,7 +65,11 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
     }
+
+
+
     private void ToastMessage(String s) {
         Toast.makeText(this,s,Toast.LENGTH_SHORT).show();
     }
+
 }

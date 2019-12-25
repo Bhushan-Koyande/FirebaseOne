@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Phone Numbers"
+        android:textSize="25sp"
+        android:padding="10dp"
+        android:fontFamily="@font/playfair_display"
+        android:textColor="@color/colorPrimaryDark"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginTop="180dp"
+        style="@style/AppTextField"
+        android:hint="Add first number"
+        android:fontFamily="@font/bad_script"
+        android:id="@+id/phone1"
+        android:layout_marginHorizontal="20dp"/>
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_below="@id/phone1"
+        android:layout_marginTop="80dp"
+        style="@style/AppTextField"
+        android:hint="Add second number"
+        android:fontFamily="@font/bad_script"
+        android:id="@+id/phone2"
+        android:layout_marginHorizontal="20dp"/>
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_below="@id/phone2"
+        android:layout_marginTop="80dp"
+        style="@style/AppTextField"
+        android:hint="Add third number"
+        android:fontFamily="@font/bad_script"
+        android:id="@+id/phone3"
+        android:layout_marginHorizontal="20dp"/>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phone3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="ADD"
+        android:fontFamily="@font/playfair_display"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:id="@+id/addToDB"/>
+
+</RelativeLayout>
