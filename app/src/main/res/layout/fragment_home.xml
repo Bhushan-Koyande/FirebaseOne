@@ -7,11 +7,50 @@
         android:textSize="20sp"
         android:padding="5dp"
         android:text=" You Are Here"
+        android:id="@+id/locationTextView"
         style="@style/DefaultAppFont"
         android:drawableStart="@drawable/map_pin"
         android:elevation="4dp"
         />
-
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:textSize="30sp"
+        android:padding="5dp"
+        android:layout_marginHorizontal="10dp"
+        android:text="Your Contacts"
+        android:fontFamily="@font/bad_script"/>
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:padding="4dp"
+        android:textSize="28sp"
+        android:layout_marginHorizontal="10dp"
+        android:id="@+id/firstPhone"
+        android:fontFamily="@font/playfair_display"
+        android:layout_marginTop="240dp"/>
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:padding="4dp"
+        android:textSize="28sp"
+        android:layout_marginHorizontal="10dp"
+        android:id="@+id/secondPhone"
+        android:fontFamily="@font/playfair_display"
+        android:layout_marginTop="300dp"/>
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:padding="4dp"
+        android:textSize="28sp"
+        android:layout_marginHorizontal="10dp"
+        android:id="@+id/thirdPhone"
+        android:fontFamily="@font/playfair_display"
+        android:layout_marginTop="360dp"/>
     <com.google.android.material.button.MaterialButton
         android:id="@+id/panicButton"
         android:layout_width="match_parent"
@@ -19,7 +58,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="74dp"
+        android:layout_marginBottom="70dp"
         android:backgroundTint="@color/colorAccent"
         android:elevation="5dp"
         android:fontFamily="@font/playfair_display"

@@ -1,14 +1,22 @@
 package com.example.firebaseone;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,11 +40,19 @@ public class HomeFragment extends Fragment {
     private String contactTwo;
     private String contactThree;
 
+    private TextView myLocation;
+    private TextView firstPhone;
+    private TextView secondPhone;
+    private TextView thirdPhone;
+    private Button panicButton;
+
     //Firebase vars
     private FirebaseDatabase mFirebaseDatabase;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference myRef;
+
+    final int SEND_SMS_PERMISSION_REQUEST_CODE=1;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -48,6 +64,12 @@ public class HomeFragment extends Fragment {
         FirebaseUser user=mFirebaseAuth.getCurrentUser();
         userID=user.getUid();
         myRef=myRef.child(userID);
+
+        firstPhone=v.findViewById(R.id.firstPhone);
+        secondPhone=v.findViewById(R.id.secondPhone);
+        thirdPhone=v.findViewById(R.id.thirdPhone);
+        myLocation=v.findViewById(R.id.locationTextView);
+        panicButton=v.findViewById(R.id.panicButton);
 
         mAuthListener=new FirebaseAuth.AuthStateListener(){
             @Override
@@ -70,6 +92,9 @@ public class HomeFragment extends Fragment {
                 contactTwo=dataSnapshot.child("secondPhone").getValue().toString();
                 contactThree=dataSnapshot.child("thirdPhone").getValue().toString();
                 Log.d(TAG,contactOne+", "+contactTwo+", "+contactThree);
+                firstPhone.setText(contactOne);
+                secondPhone.setText(contactTwo);
+                thirdPhone.setText(contactThree);
             }
 
             @Override
@@ -77,6 +102,25 @@ public class HomeFragment extends Fragment {
                 Log.e(TAG,databaseError.getMessage());
             }
         });
+
+
+        panicButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //String message="I'm in urgent need of help.I'm at "+myLocation.getText().toString();
+                String message="Hello...Good Morning";
+                if((contactOne==null || contactOne.length()==0)&&(contactTwo==null || contactTwo.length()==0)&&(contactThree==null || contactThree.length()==0)){
+                    return;
+                }
+                if(checkPermission(Manifest.permission.SEND_SMS)){
+                    SmsManager smsManager=SmsManager.getDefault();
+                    smsManager.sendTextMessage(contactOne,null,message,null,null);
+                    smsManager.sendTextMessage(contactTwo,null,message,null,null);
+                    smsManager.sendTextMessage(contactThree,null,message,null,null);
+                }
+            }
+        });
+
 
         return v;
     }
@@ -100,6 +144,11 @@ public class HomeFragment extends Fragment {
 
     private void ToastMessage(String s) {
         Toast.makeText(getActivity(),s,Toast.LENGTH_SHORT).show();
+    }
+
+    public boolean checkPermission(String permission){
+        int check= ContextCompat.checkSelfPermission(getActivity(),permission);
+        return (check==PackageManager.PERMISSION_GRANTED);
     }
 
 }
