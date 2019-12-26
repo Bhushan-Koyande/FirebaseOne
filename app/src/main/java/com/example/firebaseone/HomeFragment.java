@@ -1,7 +1,9 @@
 package com.example.firebaseone;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.util.Log;
@@ -53,6 +55,7 @@ public class HomeFragment extends Fragment {
     private DatabaseReference myRef;
 
     final int SEND_SMS_PERMISSION_REQUEST_CODE=1;
+    private static final int REQUEST_CALL=1;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -121,6 +124,26 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        firstPhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                makePhoneCall(contactOne);
+            }
+        });
+
+        secondPhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                makePhoneCall(contactTwo);
+            }
+        });
+
+        thirdPhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                makePhoneCall(contactThree);
+            }
+        });
 
         return v;
     }
@@ -149,6 +172,30 @@ public class HomeFragment extends Fragment {
     public boolean checkPermission(String permission){
         int check= ContextCompat.checkSelfPermission(getActivity(),permission);
         return (check==PackageManager.PERMISSION_GRANTED);
+    }
+
+    private void makePhoneCall(String number){
+        if(number.trim().length()>0 ){
+            if(ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.CALL_PHONE)!=PackageManager.PERMISSION_GRANTED){
+                ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.CALL_PHONE},REQUEST_CALL);
+            }else{
+                String dial="tel:"+number;
+                startActivity(new Intent(Intent.ACTION_CALL, Uri.parse(dial)));
+            }
+        }else {
+            ToastMessage("Enter phone number");
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if(requestCode == REQUEST_CALL){
+            if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED){
+               ToastMessage("Permission Granted : Try now");
+            }else {
+                ToastMessage("Permission Denied");
+            }
+        }
     }
 
 }

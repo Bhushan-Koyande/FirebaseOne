@@ -29,6 +29,7 @@
         android:textSize="28sp"
         android:layout_marginHorizontal="10dp"
         android:id="@+id/firstPhone"
+        android:drawableEnd="@drawable/icon_phone"
         android:fontFamily="@font/playfair_display"
         android:layout_marginTop="240dp"/>
     <com.google.android.material.textview.MaterialTextView
@@ -38,6 +39,7 @@
         android:padding="4dp"
         android:textSize="28sp"
         android:layout_marginHorizontal="10dp"
+        android:drawableEnd="@drawable/icon_phone"
         android:id="@+id/secondPhone"
         android:fontFamily="@font/playfair_display"
         android:layout_marginTop="300dp"/>
@@ -48,6 +50,7 @@
         android:padding="4dp"
         android:textSize="28sp"
         android:layout_marginHorizontal="10dp"
+        android:drawableEnd="@drawable/icon_phone"
         android:id="@+id/thirdPhone"
         android:fontFamily="@font/playfair_display"
         android:layout_marginTop="360dp"/>
