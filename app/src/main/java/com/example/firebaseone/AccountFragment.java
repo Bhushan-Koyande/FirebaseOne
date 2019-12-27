@@ -54,6 +54,14 @@ public class AccountFragment extends Fragment {
             }
         });
 
+        about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),AboutActivity.class);
+                startActivity(intent);
+            }
+        });
+
         return v;
     }
 

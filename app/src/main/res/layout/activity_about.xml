@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="About/Contact"
+        android:textSize="30sp"
+        android:fontFamily="@font/bad_script"
+        android:textStyle="bold"/>
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:padding="20dp"
+        android:fontFamily="@font/bad_script"
+        android:text="  HelpDroid is the companion which you can trust in any case of emergency.It detects your current location and informs you of the nearest hospital and police station.It will also provide suggestions on places to visit(points of interest)based on your location.You can contact your close ones at a button click."/>
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:fontFamily="@font/bad_script"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:padding="20dp"
+        android:text="Bhushan Koyande:\nbhushankoyande446@gmail.com"
+        android:id="@+id/nameText"/>
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameText"
+        android:paddingHorizontal="20dp"
+        android:text="Here to Serve You"
+        android:fontFamily="@font/bad_script"/>
+</RelativeLayout>

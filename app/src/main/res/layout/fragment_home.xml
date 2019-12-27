@@ -17,6 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp"
         android:textSize="30sp"
+        android:textStyle="bold"
         android:padding="5dp"
         android:layout_marginHorizontal="10dp"
         android:text="Your Contacts"
@@ -24,7 +25,7 @@
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""
+        android:text="No contacts added"
         android:padding="4dp"
         android:textSize="28sp"
         android:layout_marginHorizontal="10dp"
@@ -35,7 +36,7 @@
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""
+        android:text="No contacts added"
         android:padding="4dp"
         android:textSize="28sp"
         android:layout_marginHorizontal="10dp"
@@ -46,7 +47,7 @@
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""
+        android:text="No contacts added"
         android:padding="4dp"
         android:textSize="28sp"
         android:layout_marginHorizontal="10dp"
@@ -61,7 +62,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="65dp"
         android:backgroundTint="@color/colorAccent"
         android:elevation="5dp"
         android:fontFamily="@font/playfair_display"
