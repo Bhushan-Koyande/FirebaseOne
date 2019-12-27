@@ -22,7 +22,7 @@ public class SignInActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private EditText mEmail,mPassword;
-    private Button signInBtn,signOutBtn;
+    private Button signInBtn;
     private TextView signUpTextView,forgotTextView;
     private static final String TAG="MainActivity";
     @Override
@@ -32,7 +32,6 @@ public class SignInActivity extends AppCompatActivity {
         mEmail=findViewById(R.id.inputMail);
         mPassword=findViewById(R.id.inputPassword);
         signInBtn=findViewById(R.id.signInButton);
-        signOutBtn=findViewById(R.id.signOutButton);
         signUpTextView=findViewById(R.id.signUpTextView);
         forgotTextView=findViewById(R.id.forgotPasswdTextView);
         mAuth=FirebaseAuth.getInstance();
@@ -42,7 +41,9 @@ public class SignInActivity extends AppCompatActivity {
                 FirebaseUser user=firebaseAuth.getCurrentUser();
                 if (user!=null){
                     Log.d(TAG,"onAuthStateChanged:signed_in"+user.getUid());
-                    ToastMessage("Successfully signed in with :"+user.getEmail());
+                    Intent i=new Intent(SignInActivity.this,MainActivity.class);
+                    startActivity(i);
+
                 }else {
                     Log.d(TAG,"onAuthStateChanged:signed_out");
                     ToastMessage("Successfully signed out");
@@ -71,13 +72,7 @@ public class SignInActivity extends AppCompatActivity {
                 }
             }
         });
-        signOutBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mAuth.signOut();
-                ToastMessage("Signing out");
-            }
-        });
+
         signUpTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

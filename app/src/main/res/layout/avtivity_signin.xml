@@ -52,17 +52,7 @@
         style="@style/ButtonFontStyle"
         android:text="SIGN IN" />
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:layout_below="@id/signInButton"
-        android:text="SIGN OUT"
-        android:textStyle="bold"
-        style="@style/ButtonFontStyle"
-        android:id="@+id/signOutButton"
-        android:elevation="20dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"/>
+
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/signUpTextView"

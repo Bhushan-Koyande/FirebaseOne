@@ -11,12 +11,16 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class AccountFragment extends Fragment {
 
     private CardView profile;
     private CardView contact;
     private CardView about;
     private CardView logout;
+
+    private FirebaseAuth mAuth;
 
     public AccountFragment(){
         //Required Empty Constructor
@@ -25,6 +29,8 @@ public class AccountFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_account, container, false);
+
+        mAuth=FirebaseAuth.getInstance();
 
         profile=v.findViewById(R.id.cardView1);
         contact=v.findViewById(R.id.cardView2);
@@ -36,6 +42,15 @@ public class AccountFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent=new Intent(getActivity(),ContactActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),SignInActivity.class);
+                startActivity(intent);
+                mAuth.signOut();
             }
         });
 
