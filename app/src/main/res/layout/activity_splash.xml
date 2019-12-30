@@ -8,10 +8,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="HelpDroid"
-        android:textSize="40sp"
+        android:textSize="50sp"
         android:textColor="#fff"
         android:id="@+id/title"
         android:layout_below="@id/imageV"
+        android:layout_margin="20dp"
         android:layout_centerHorizontal="true"
         app:fontFamily="@font/droidlogoregular"
         android:textStyle="bold"/>

@@ -5,17 +5,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".SignInActivity">
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="40sp"
+        android:text="HELPDROID"
+        android:fontFamily="@font/droidlogoregular"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="140dp"
+        android:textStyle="bold"/>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="300dp"
         app:boxStrokeColor="@color/colorPrimary"
         app:boxStrokeWidth="2dp"
         android:layout_marginHorizontal="50dp">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:textSize="15sp"
-            style="@style/DefaultAppFont"
+            android:fontFamily="@font/bad_script"
             android:id="@+id/inputMail"
             android:layout_height="match_parent"
             android:inputType="textEmailAddress"
@@ -28,12 +38,12 @@
         android:layout_marginHorizontal="50dp"
         app:boxStrokeColor="@color/colorPrimary"
         app:boxStrokeWidth="2dp"
-        android:layout_marginTop="330dp">
+        android:layout_marginTop="400dp">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:textSize="15sp"
-            style="@style/DefaultAppFont"
             android:id="@+id/inputPassword"
+            android:fontFamily="@font/bad_script"
             android:layout_below="@id/inputMail"
             android:layout_height="match_parent"
             android:inputType="textPassword"
@@ -46,7 +56,7 @@
         android:layout_width="200dp"
         android:layout_height="60dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="510dp"
         android:elevation="20dp"
         android:textStyle="bold"
         style="@style/ButtonFontStyle"

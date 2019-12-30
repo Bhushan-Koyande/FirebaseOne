@@ -91,13 +91,17 @@ public class HomeFragment extends Fragment {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                contactOne=dataSnapshot.child("firstPhone").getValue().toString();
-                contactTwo=dataSnapshot.child("secondPhone").getValue().toString();
-                contactThree=dataSnapshot.child("thirdPhone").getValue().toString();
-                Log.d(TAG,contactOne+", "+contactTwo+", "+contactThree);
-                firstPhone.setText(contactOne);
-                secondPhone.setText(contactTwo);
-                thirdPhone.setText(contactThree);
+                if((dataSnapshot.hasChild("firstPhone"))
+                        &&(dataSnapshot.hasChild("secondPhone"))
+                        &&(dataSnapshot.hasChild("thirdPhone"))) {
+                    contactOne = dataSnapshot.child("firstPhone").getValue().toString();
+                    contactTwo = dataSnapshot.child("secondPhone").getValue().toString();
+                    contactThree = dataSnapshot.child("thirdPhone").getValue().toString();
+                    Log.d(TAG, contactOne + ", " + contactTwo + ", " + contactThree);
+                    firstPhone.setText(contactOne);
+                    secondPhone.setText(contactTwo);
+                    thirdPhone.setText(contactThree);
+                }
             }
 
             @Override

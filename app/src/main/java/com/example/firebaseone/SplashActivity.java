@@ -23,6 +23,7 @@ public class SplashActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_splash);
         titleText=findViewById(R.id.title);
+        titleText.setText("HELPDROID");
         logoImage=findViewById(R.id.imageV);
 
         new Handler().postDelayed(new Runnable() {

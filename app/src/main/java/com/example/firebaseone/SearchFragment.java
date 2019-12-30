@@ -21,18 +21,18 @@ import com.esri.arcgisruntime.mapping.view.MapView;
 
 public class SearchFragment extends Fragment {
 
-    //private MapView mMapView;
-    //private LocationDisplay mLocationDisplay;
+    private MapView mMapView;
+    private LocationDisplay mLocationDisplay;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_search, container, false);
-        //mMapView=v.findViewById(R.id.mapView);
-        //setupMap();
-        //setupLocationDisplay();
+        mMapView=v.findViewById(R.id.mapView);
+        setupMap();
+        setupLocationDisplay();
         return v;
     }
-/*
+
     private void setupMap() {
         if (mMapView != null) {
             Basemap.Type basemapType = Basemap.Type.STREETS_VECTOR;
@@ -79,5 +79,5 @@ public class SearchFragment extends Fragment {
             Toast.makeText(getActivity(), getResources().getString(R.string.location_permission_denied), Toast.LENGTH_SHORT).show();
         }
     }
-*/
+
 }
