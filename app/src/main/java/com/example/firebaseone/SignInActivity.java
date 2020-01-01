@@ -46,7 +46,7 @@ public class SignInActivity extends AppCompatActivity {
 
                 }else {
                     Log.d(TAG,"onAuthStateChanged:signed_out");
-                    ToastMessage("Successfully signed out");
+                    //ToastMessage("Successfully signed out");
                 }
             }
         };

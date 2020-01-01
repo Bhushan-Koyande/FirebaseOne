@@ -8,8 +8,9 @@
         android:layout_height="wrap_content"
         android:text="About/Contact"
         android:textSize="30sp"
-        android:fontFamily="@font/bad_script"
-        android:textStyle="bold"/>
+        android:layout_margin="14dp"
+        android:fontFamily="@font/playfair_display"
+        android:textColor="@color/colorPrimaryDark" />
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

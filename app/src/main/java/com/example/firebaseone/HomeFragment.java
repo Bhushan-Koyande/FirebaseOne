@@ -3,6 +3,9 @@ package com.example.firebaseone;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.SmsManager;
@@ -21,6 +24,11 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -29,6 +37,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import com.example.firebaseone.ContactActivity;
@@ -37,15 +48,24 @@ public class HomeFragment extends Fragment {
 
     private String TAG="";
     private String userID;
+    private String locationString="  ";
 
     private String contactOne;
     private String contactTwo;
     private String contactThree;
+    private String policePhone="100";
+    private String firePhone="101";
+    private String doctorPhone="102";
+    private String womenPhone="1091";
 
     private TextView myLocation;
     private TextView firstPhone;
     private TextView secondPhone;
     private TextView thirdPhone;
+    private TextView callPolice;
+    private TextView callFire;
+    private TextView callDoctor;
+    private TextView callWomen;
     private Button panicButton;
 
     //Firebase vars
@@ -54,12 +74,15 @@ public class HomeFragment extends Fragment {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference myRef;
 
+    private FusedLocationProviderClient fusedLocationClient;
+
     final int SEND_SMS_PERMISSION_REQUEST_CODE=1;
     private static final int REQUEST_CALL=1;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
+        fusedLocationClient= LocationServices.getFusedLocationProviderClient(getActivity());
 
         mFirebaseAuth=FirebaseAuth.getInstance();
         mFirebaseDatabase=FirebaseDatabase.getInstance();
@@ -71,8 +94,31 @@ public class HomeFragment extends Fragment {
         firstPhone=v.findViewById(R.id.firstPhone);
         secondPhone=v.findViewById(R.id.secondPhone);
         thirdPhone=v.findViewById(R.id.thirdPhone);
+        callPolice=v.findViewById(R.id.police);
+        callFire=v.findViewById(R.id.fire);
+        callDoctor=v.findViewById(R.id.medical);
+        callWomen=v.findViewById(R.id.women);
         myLocation=v.findViewById(R.id.locationTextView);
         panicButton=v.findViewById(R.id.panicButton);
+
+        fusedLocationClient.getLastLocation().addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
+            @Override
+            public void onSuccess(Location location) {
+                if(location!=null){
+                    Geocoder geocoder = new Geocoder(getActivity());
+                    List<Address> addresses=new ArrayList<>();
+                    try {
+                        addresses=geocoder.getFromLocation(location.getLatitude(),location.getLongitude(),1);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    if(addresses.size()>0){
+                        locationString=locationString+addresses.get(0).getAddressLine(0);
+                        myLocation.setText(locationString);
+                    }
+                }
+            }
+        });
 
         mAuthListener=new FirebaseAuth.AuthStateListener(){
             @Override
@@ -80,10 +126,10 @@ public class HomeFragment extends Fragment {
                 FirebaseUser user=firebaseAuth.getCurrentUser();
                 if (user!=null){
                     Log.d(TAG,"onAuthStateChanged:signed_in"+user.getUid());
-                    ToastMessage("Successfully signed in with :"+user.getEmail());
+                    //ToastMessage("Successfully signed in with :"+user.getEmail());
                 }else {
                     Log.d(TAG,"onAuthStateChanged:signed_out");
-                    ToastMessage("Successfully signed out");
+                    //ToastMessage("Successfully signed out");
                 }
             }
         };
@@ -146,6 +192,34 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 makePhoneCall(contactThree);
+            }
+        });
+
+        callPolice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                makePhoneCall(policePhone);
+            }
+        });
+
+        callFire.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                makePhoneCall(firePhone);
+            }
+        });
+
+        callDoctor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                makePhoneCall(doctorPhone);
+            }
+        });
+
+        callWomen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                makePhoneCall(womenPhone);
             }
         });
 

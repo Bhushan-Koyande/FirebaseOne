@@ -8,9 +8,8 @@
         android:layout_height="wrap_content"
         android:text="My Profile"
         android:textSize="40sp"
-        android:padding="20dp"
+        android:padding="30dp"
         android:fontFamily="@font/playfair_display"
-        android:textStyle="bold"
         android:textColor="@color/colorPrimaryDark"/>
     <com.google.android.material.card.MaterialCardView
         android:layout_width="180dp"
@@ -21,8 +20,8 @@
         android:id="@+id/cardView1"
         app:cardElevation="2dp">
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@drawable/editprofile"
             android:layout_margin="40dp"/>
         <com.google.android.material.textview.MaterialTextView
@@ -47,8 +46,8 @@
         app:cardUseCompatPadding="true"
         app:cardElevation="2dp">
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@drawable/addfriend"
             android:layout_margin="40dp"/>
         <com.google.android.material.textview.MaterialTextView
@@ -64,14 +63,14 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="180dp"
         android:layout_height="180dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="400dp"
         app:cardUseCompatPadding="true"
         android:id="@+id/cardView3"
         android:layout_marginStart="14dp"
         app:cardElevation="2dp">
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@drawable/about"
             android:layout_margin="40dp"/>
         <com.google.android.material.textview.MaterialTextView
@@ -87,7 +86,7 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="180dp"
         android:layout_height="180dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="400dp"
         android:layout_alignEnd="@id/cardView3"
         android:layout_alignBaseline="@id/cardView3"
         android:layout_alignParentRight="true"
@@ -96,8 +95,8 @@
         android:layout_marginEnd="14dp"
         app:cardElevation="2dp">
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_margin="40dp"
             android:src="@drawable/signout" />
         <com.google.android.material.textview.MaterialTextView

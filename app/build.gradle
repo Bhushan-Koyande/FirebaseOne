@@ -17,6 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -38,6 +42,7 @@ dependencies {
     implementation 'com.willowtreeapps.spruce:spruce-android:1.0.1'
 
     implementation 'com.esri.arcgisruntime:arcgis-android:100.7.0'
+    implementation "com.google.android.gms:play-services-location:17.0.0"
 }
 
 apply plugin: 'com.google.gms.google-services'
