@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:boxStrokeWidth="2dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="350dp"
         android:layout_marginHorizontal="20dp"
         app:boxStrokeColor="@color/colorPrimary">
         <com.google.android.material.textfield.TextInputEditText
@@ -47,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:boxStrokeWidth="2dp"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="470dp"
         android:layout_marginHorizontal="20dp"
         app:boxStrokeColor="@color/colorPrimary">
         <com.google.android.material.textfield.TextInputEditText
@@ -66,7 +66,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:boxStrokeWidth="2dp"
-        android:layout_marginTop="540dp"
+        android:layout_marginTop="590dp"
         android:layout_marginHorizontal="20dp"
         app:boxStrokeColor="@color/colorPrimary">
         <com.google.android.material.textfield.TextInputEditText
@@ -77,7 +77,7 @@
             android:textSize="15sp"
             android:maxLines="1"
             android:inputType="textEmailAddress"
-            android:hint="old e-mail"
+            android:hint="new e-mail"
             android:id="@+id/newemail"
             android:fontFamily="@font/bad_script"/>
     </com.google.android.material.textfield.TextInputLayout>

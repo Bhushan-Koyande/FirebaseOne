@@ -15,7 +15,7 @@ public class SplashActivity extends AppCompatActivity {
     private ImageView logoImage;
     private TextView titleText;
 
-    private int splashTimeout=3000;
+    private int splashTimeout=2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){

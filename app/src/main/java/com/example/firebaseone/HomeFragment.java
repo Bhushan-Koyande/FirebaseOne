@@ -1,6 +1,7 @@
 package com.example.firebaseone;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
@@ -76,8 +77,14 @@ public class HomeFragment extends Fragment {
 
     private FusedLocationProviderClient fusedLocationClient;
 
+    private HomeFragmentListener homeFragmentListener;
+
     final int SEND_SMS_PERMISSION_REQUEST_CODE=1;
     private static final int REQUEST_CALL=1;
+
+    public interface HomeFragmentListener{
+        void onLocationSent(Location deviceLocation);
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -105,6 +112,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onSuccess(Location location) {
                 if(location!=null){
+                    homeFragmentListener.onLocationSent(location);
                     Geocoder geocoder = new Geocoder(getActivity());
                     List<Address> addresses=new ArrayList<>();
                     try {
@@ -274,6 +282,23 @@ public class HomeFragment extends Fragment {
                 ToastMessage("Permission Denied");
             }
         }
+    }
+
+    @Override
+    public void onAttach(Context context){
+        super.onAttach(context);
+        if(context instanceof HomeFragmentListener){
+            homeFragmentListener=(HomeFragmentListener) context;
+        }else{
+            throw new RuntimeException(context.toString()
+                    +"must implement HomeFragmentListener");
+        }
+    }
+
+    @Override
+    public void onDetach(){
+        super.onDetach();
+        homeFragmentListener=null;
     }
 
 }

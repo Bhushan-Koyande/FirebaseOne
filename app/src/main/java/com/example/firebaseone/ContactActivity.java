@@ -51,10 +51,10 @@ public class ContactActivity extends AppCompatActivity {
                 FirebaseUser user=firebaseAuth.getCurrentUser();
                 if (user!=null){
                     Log.d(TAG,"onAuthStateChanged:signed_in"+user.getUid());
-                    ToastMessage("Successfully signed in with :"+user.getEmail());
+                    //ToastMessage("Successfully signed in with :"+user.getEmail());
                 }else {
                     Log.d(TAG,"onAuthStateChanged:signed_out");
-                    ToastMessage("Successfully signed out");
+                    //ToastMessage("Successfully signed out");
                 }
             }
         };

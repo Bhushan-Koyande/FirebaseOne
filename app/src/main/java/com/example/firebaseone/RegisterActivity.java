@@ -1,5 +1,6 @@
 package com.example.firebaseone;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -58,6 +59,9 @@ public class RegisterActivity extends AppCompatActivity {
                                 ToastMessage("createUserWithEmail:OnComplete"+task.isSuccessful());
                                 if(!task.isSuccessful()){
                                     ToastMessage(task.getException().getMessage());
+                                }else{
+                                    Intent intent=new Intent(RegisterActivity.this,MainActivity.class);
+                                    startActivity(intent);
                                 }
                             }
                         });
@@ -65,8 +69,6 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
     }
-
-
 
     private void ToastMessage(String s) {
         Toast.makeText(this,s,Toast.LENGTH_SHORT).show();

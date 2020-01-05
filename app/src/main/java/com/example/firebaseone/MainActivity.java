@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -19,14 +20,19 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements HomeFragment.HomeFragmentListener {
 
 
     private static final String TAG="MainActivity";
+
+    SearchFragment searchFragment;
+    HomeFragment homeFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        homeFragment=new HomeFragment();
+        searchFragment=new SearchFragment();
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottomNavigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
@@ -44,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                     selectedFragment=new HomeFragment();
                     break;
                 case R.id.nav_search:
-                    selectedFragment=new SearchFragment();
+                    selectedFragment=searchFragment;
                     break;
                 case R.id.nav_account:
                     selectedFragment=new AccountFragment();
@@ -54,4 +60,8 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    @Override
+    public void onLocationSent(Location deviceLocation) {
+        searchFragment.getLocation(deviceLocation);
+    }
 }

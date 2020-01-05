@@ -17,7 +17,7 @@
         android:layout_marginTop="200dp"
         android:padding="20dp"
         android:fontFamily="@font/bad_script"
-        android:text="  HelpDroid is the companion which you can trust in any case of emergency.It detects your current location and informs you of the nearest hospital and police station.It will also provide suggestions on places to visit(points of interest)based on your location.You can contact your close ones at a button click."/>
+        android:text="  HelpDroid is the companion which you can trust in any case of emergency.It detects your current location and informs you of the nearest hospital and police station.It will also provide suggestions on places to visit(points of interest)based on your location.You can contact your close ones at a button click.Various helpline numbers are also added to help you out during difficulty."/>
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

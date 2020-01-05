@@ -2,4 +2,5 @@
     <string name="app_name">Helpdroid</string>
     <string name="password">password</string>
     <string name="location_permission_denied">User denied permission for device location.</string>
+    <string name="name">Name</string>
 </resources>

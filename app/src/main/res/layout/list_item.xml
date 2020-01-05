@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="2dp"
+    android:layout_marginHorizontal="10dp"
+    app:cardUseCompatPadding="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="4dp">
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:padding="2dp"
+            android:layout_margin="20dp"
+            android:id="@+id/itemImageView"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:layout_marginVertical="20dp"
+            android:textSize="20sp"
+            android:padding="10dp"
+            android:fontFamily="@font/bad_script"
+            android:id="@+id/itemName"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginStart="120dp"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone"
+            android:enabled="true"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"
+            android:fontFamily="@font/bad_script"
+            android:layout_marginStart="120dp"
+            android:layout_marginVertical="10dp"
+            android:layout_below="@id/itemName"
+            android:id="@+id/itemPhone"
+            android:textSize="15sp"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/itemPhone"
+            android:maxLines="4"
+            android:id="@+id/itemAddress"
+            android:fontFamily="@font/bad_script"
+            android:layout_margin="20dp"
+            android:padding="5dp" />
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>
