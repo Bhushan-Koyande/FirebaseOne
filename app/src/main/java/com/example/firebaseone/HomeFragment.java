@@ -81,6 +81,7 @@ public class HomeFragment extends Fragment {
 
     final int SEND_SMS_PERMISSION_REQUEST_CODE=1;
     private static final int REQUEST_CALL=1;
+    private static final int LOCATION_PERMISSION_REQUEST_CODE=1234;
 
     public interface HomeFragmentListener{
         void onLocationSent(Location deviceLocation);
@@ -108,25 +109,6 @@ public class HomeFragment extends Fragment {
         myLocation=v.findViewById(R.id.locationTextView);
         panicButton=v.findViewById(R.id.panicButton);
 
-        fusedLocationClient.getLastLocation().addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
-            @Override
-            public void onSuccess(Location location) {
-                if(location!=null){
-                    homeFragmentListener.onLocationSent(location);
-                    Geocoder geocoder = new Geocoder(getActivity());
-                    List<Address> addresses=new ArrayList<>();
-                    try {
-                        addresses=geocoder.getFromLocation(location.getLatitude(),location.getLongitude(),1);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    if(addresses.size()>0){
-                        locationString=locationString+addresses.get(0).getAddressLine(0);
-                        myLocation.setText(locationString);
-                    }
-                }
-            }
-        });
 
         mAuthListener=new FirebaseAuth.AuthStateListener(){
             @Override
@@ -141,6 +123,8 @@ public class HomeFragment extends Fragment {
                 }
             }
         };
+
+        getLocationPermission();
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -282,6 +266,68 @@ public class HomeFragment extends Fragment {
                 ToastMessage("Permission Denied");
             }
         }
+        if(requestCode==LOCATION_PERMISSION_REQUEST_CODE){
+            if (grantResults.length > 0) {
+                for (int i = 0; i < grantResults.length; i++) {
+                    if (grantResults[i] != PackageManager.PERMISSION_GRANTED);
+                        Log.d(TAG, "onRequestPermissionsResult: permission failed");
+                        return;
+                    }
+                }
+                Log.d(TAG, "onRequestPermissionsResult: permission granted");
+                geoLocate();
+
+        }
+    }
+
+    private void getLocationPermission () {
+        Log.d(TAG, "getLocationPermission: getting location permissions");
+        String[] permissions = {Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION};
+
+        if (ContextCompat.checkSelfPermission(getActivity(),
+                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(getActivity(),
+                    Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                geoLocate();
+            } else {
+                ActivityCompat.requestPermissions(getActivity(),
+                        permissions,
+                        LOCATION_PERMISSION_REQUEST_CODE);
+            }
+        } else {
+            ActivityCompat.requestPermissions(getActivity(),
+                    permissions,
+                    LOCATION_PERMISSION_REQUEST_CODE);
+        }
+    }
+
+    private void geoLocate(){
+        fusedLocationClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
+            @Override
+            public void onComplete(@NonNull Task<Location> task) {
+                if(task.isSuccessful()){
+                    Location currentLocation=(Location)task.getResult();
+                    homeFragmentListener.onLocationSent(currentLocation);
+                    Geocoder geocoder=new Geocoder(getActivity());
+                    List <Address> addresses=new ArrayList<>();
+                    try {
+                        addresses=geocoder.getFromLocation(currentLocation.getLatitude(),currentLocation.getLongitude(),1);
+                    } catch (IOException e) {
+                        Log.e(TAG,e.getMessage());
+                    }
+                    catch (NullPointerException e){
+                        Log.e(TAG,e.toString());
+                    }
+                    if (addresses.size()>0){
+                        locationString=addresses.get(0).getAddressLine(0);
+                        myLocation.setText(locationString);
+                    }
+                }else{
+                    Log.e(TAG,"Task failed"+task.getException().getMessage());
+                }
+            }
+        });
     }
 
     @Override
